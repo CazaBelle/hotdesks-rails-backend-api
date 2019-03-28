@@ -52,22 +52,25 @@ RSpec.describe 'spaces API', type: :request do
     context 'when the parameters are valid' do 
       before(:each) do 
         post "/v1/spaces", params: valid_attributes
-      end  
-        it 'creates a space' do 
-          expect(json["name"]).to eq("TestSpace")
-          expect(json["city"]).to eq("London")
-          expect(json["address"]).to eq("123 Test Street")
-          expect(response).to have_http_status(200)
-        end 
       end 
-    end 
+
+        it 'creates a space' do 
+          p json
+          expect(json["data"]["name"]).to eq("TestSpace")
+          expect(json["data"]["city"]).to eq("London")
+          expect(json["data"]["address"]).to eq("123 Test Street")
+          expect(response).to have_http_status(201)
+        end 
+
+      end
+    end
+      
+    # context 'when the parameters are not valid'do 
+      
+    # end 
 
     # Parse JSON response to ruby hash
     def json
       JSON.parse(response.body)
     end
-
 end 
-
-
-

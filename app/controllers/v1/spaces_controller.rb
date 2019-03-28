@@ -11,8 +11,17 @@ class V1::SpacesController < ApplicationController
   end 
 
   def create 
-    space = Space.create(space_params)
-    render json: space
+    space = Space.new(space_params)
+    if space.save
+      render status: 201, json: {
+        message: "Space successfully added",
+        data: space
+      }
+    else 
+      render status: 500, json: {
+        message: "Space not added"
+      }
+    end
   end 
 
   private 
