@@ -10,10 +10,15 @@ class V1::SpacesController < ApplicationController
     render json: space
   end 
 
+  def create 
+    space = Space.create(space_params)
+    render json: space
+  end 
+
   private 
 
   def space_params
-    params.perit(:name, :city, :address, :postcode, :price)
+    params.permit(:name, :city, :address, :postcode, :price)
   end 
   
 end

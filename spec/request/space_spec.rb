@@ -43,11 +43,24 @@ RSpec.describe 'spaces API', type: :request do
       it 'returns a not found message' do 
         expect(response.body).to match("{\"message\":\"Couldn't find Space with 'id'=11\"}")
       end 
-
-      
-
     end 
   end 
+
+  describe 'POST /v1/spaces' do 
+    let(:valid_attributes){ {"name" => "TestSpace", city: "London", address: "123 Test Street", postcode: "FooBar", price: 50} }
+  
+    context 'when the parameters are valid' do 
+      before(:each) do 
+        post "/v1/spaces", params: valid_attributes
+      end  
+        it 'creates a space' do 
+          expect(json["name"]).to eq("TestSpace")
+          expect(json["city"]).to eq("London")
+          expect(json["address"]).to eq("123 Test Street")
+          expect(response).to have_http_status(200)
+        end 
+      end 
+    end 
 
     # Parse JSON response to ruby hash
     def json
