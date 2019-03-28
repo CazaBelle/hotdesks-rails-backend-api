@@ -7,13 +7,19 @@ RSpec.describe 'spaces API', type: :request do
 
   describe 'GET /v1/spaces' do 
     before(:each) do 
-      get v1_spaces_url
+      get v1_spaces_url, {}
     end 
 
     it 'returns spaces' do 
       expect(json).not_to be_empty
+      expect(json.size).to eq(10)
     end 
-  end 
+
+    it 'returns status code 200' do 
+      expect(response.status).to eq(200)
+    end 
+
+    
 
 
     # Parse JSON response to ruby hash
@@ -21,6 +27,11 @@ RSpec.describe 'spaces API', type: :request do
       JSON.parse(response.body)
     end
 
+    # def json_response(object, status = :ok)
+    #   render json: object, status: status
+    # end
+
+  end 
 end 
 
 
