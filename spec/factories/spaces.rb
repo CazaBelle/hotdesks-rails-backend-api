@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :space do
-    name { Faker::Business }
+    name { Faker::Company.name }
     city { Faker::Address.city }
     address { Faker::Address.street_address }
     postcode { Faker::Address.postcode }
