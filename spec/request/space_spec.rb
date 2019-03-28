@@ -19,7 +19,19 @@ RSpec.describe 'spaces API', type: :request do
       expect(response.status).to eq(200)
     end 
 
-    
+  describe 'GET /v1/spaces/:id' do 
+
+    before(:each) do 
+      get "/v1/spaces/#{space_id}", {}
+    end 
+
+    it 'returns the space' do 
+      expect(json).not_to be_empty
+    end 
+
+  end 
+
+
 
 
     # Parse JSON response to ruby hash
