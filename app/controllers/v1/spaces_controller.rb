@@ -18,7 +18,7 @@ class V1::SpacesController < ApplicationController
         data: space
       }
     else 
-      render status: 500, json: {
+      render status: 422, json: {
         message: "Space not added"
       }
     end

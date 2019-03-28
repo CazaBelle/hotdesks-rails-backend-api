@@ -5,7 +5,6 @@ RSpec.describe 'spaces API', type: :request do
   let!(:spaces) { create_list(:space, 10) }
   let(:space_id) { spaces.first.id }
  
-
   describe 'GET /v1/spaces' do 
     before(:each) do 
       get v1_spaces_url, {}
@@ -47,7 +46,7 @@ RSpec.describe 'spaces API', type: :request do
   end 
 
   describe 'POST /v1/spaces' do 
-    let(:valid_attributes){ {"name" => "TestSpace", city: "London", address: "123 Test Street", postcode: "FooBar", price: 50} }
+    let(:valid_attributes){ {name:"TestSpace", city: "London", address: "123 Test Street", postcode: "FooBar", price: 50} }
   
     context 'when the parameters are valid' do 
       before(:each) do 
@@ -55,7 +54,6 @@ RSpec.describe 'spaces API', type: :request do
       end 
 
         it 'creates a space' do 
-          p json
           expect(json["data"]["name"]).to eq("TestSpace")
           expect(json["data"]["city"]).to eq("London")
           expect(json["data"]["address"]).to eq("123 Test Street")
@@ -65,9 +63,15 @@ RSpec.describe 'spaces API', type: :request do
       end
     end
       
-    # context 'when the parameters are not valid'do 
-      
-    # end 
+    context 'when the parameters are invalid' do 
+      before(:each) do 
+        post "/v1/spaces", params: { name: "SecondTestName"}
+      end
+
+      it 'returns a status code 422' do 
+        expect(response).to have_http_status(422)
+      end 
+    end 
 
     # Parse JSON response to ruby hash
     def json
