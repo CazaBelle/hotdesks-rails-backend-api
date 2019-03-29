@@ -10,6 +10,10 @@ script:
 - bundle exec rspec
 services:
 - postrgresql
- 
-
-
+deploy:
+  provider: heroku
+  api_key:
+    secure: NJ9zdf0RNmMyylQ3IbwZjIJpjJu0JcZlys08A6uas0OAdO9EA0ieuoJWEJ2itb62hwJz5/s9QXDSq5gu3FGezu2aaNcZ2GDV6ArLai6tx8q9EI086pmZoNdVRs6FkpB61Ni82kRWLaYkJm7GsHJCIOVzfY5mGnhbpiA7eMM2Sp0iNK9VAvaNQZ9yIUhVUQYuq+ayz8Wz62ZfdFAwfqchnpNG4xYqvSPNX+Wz/pV8SgE6U0FFeKPnggfG6rer6Kczqvr86n/qYAdbUYcxr4ZRsZqHyxN9eT/7sz7opy4nmyaTM014SkTkyzxFIqYZxseO6kzBFVdM5wlykTD5L5wOyV6K1+l/QGjB6/GDwL6VKL4W34jvOe2W52SYAHRWxg9znq/0PeyA/rWu/oswnzlA8oc6mBCyKWh8QIde7zPwznDFWzPIuT1w+wa8oh5et+fwMyhdtkvjrojtqpB3Ras66E8OkEyvOQU0wwt71vzB0YfpE3/C8WBBuCcdhgE7xTy0LYR1KwtHXkrMR2CEJwC2eZVv6ARRm6AIrOXqHAjXXkEUStIbvhtJ5u/a+bs2zEor7gN9/vBHqTo/DOjC9fEFxCWxT8ppoevYswfrOvOJl3tApdN6GaEHPtXR30i61fj/a9mZ2OsAhODoxd5SS36Q3DQyB5Q1f6QYyHuL4TwsLwI=
+  run: rake db:migrate
+  app: hotdesks-backend-api
+  
