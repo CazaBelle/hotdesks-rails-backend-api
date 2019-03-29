@@ -1,13 +1,11 @@
 class V1::SpacesController < ApplicationController
   before_action :set_space, only: [:show, :update, :destroy]
   
-   # GET /v1/spaces
+  # GET /v1/spaces
   def index
     spaces = Space.all
     render json: spaces
   end
-
- 
 
   #POST /v1/spaces
   def create 
@@ -24,31 +22,31 @@ class V1::SpacesController < ApplicationController
     end
   end
 
-    # GET /v1/spaces/:id
-    def show 
-      render json: @space
-    end 
+  # GET /v1/spaces/:id
+  def show 
+    render json: @space
+  end 
 
-    #PUT request - should always return an empty json
-    def update
-      @space.update(space_params)
-      head :no_content
-    end 
+  #PUT request - should always return an empty json
+  def update
+    @space.update(space_params)
+    head :no_content
+  end 
 
-    def destroy
-      @space.destroy
-      head :no_content
-    end 
+  def destroy
+    @space.destroy
+    head :no_content
+  end 
  
   private 
 
-    def space_params
-      params.permit(:name, :city, :address, :postcode, :price)
-    end 
-
-    def set_space
-      @space = Space.find(params[:id])
-    end 
-
+  def space_params
+    params.permit(:name, :city, :address, :postcode,:price)
   end 
+
+  def set_space
+    @space = Space.find(params[:id])
+  end 
+
+end 
 

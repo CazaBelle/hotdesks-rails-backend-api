@@ -86,6 +86,7 @@ RSpec.describe 'spaces API', type: :request do
         expect(response.body).to be_empty
         expect(response).to have_http_status(204)
       end 
+    end 
 
     describe 'DELETE /v1/spaces/:id' do 
 
@@ -97,9 +98,6 @@ RSpec.describe 'spaces API', type: :request do
         expect(response).to have_http_status(204)
       end 
     end 
-
-    end 
-
 
     # Parse JSON response to ruby hash
     def json
