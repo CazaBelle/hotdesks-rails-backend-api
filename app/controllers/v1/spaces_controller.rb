@@ -34,6 +34,11 @@ class V1::SpacesController < ApplicationController
       @space.update(space_params)
       head :no_content
     end 
+
+    def destroy
+      @space.destroy
+      head :no_content
+    end 
  
   private 
 

@@ -77,17 +77,26 @@ RSpec.describe 'spaces API', type: :request do
     end 
 
     describe 'PUT /v1/spaces/:id' do 
-      # let(:attribute){ {name: "NewName"} }
 
       before(:each) do 
         put "/v1/spaces/#{space_id}", params: {name: "NewName"}
       end 
 
-
-      it 'updates the record' do 
+      it 'updates the space' do 
         expect(response.body).to be_empty
         expect(response).to have_http_status(204)
       end 
+
+    describe 'DELETE /v1/spaces/:id' do 
+
+      before(:each) do 
+        delete "/v1/spaces/#{space_id}"
+      end 
+
+      it 'deletes the space' do 
+        expect(response).to have_http_status(204)
+      end 
+    end 
 
     end 
 
