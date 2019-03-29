@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+spaces = Space.create([{name: 'Club Workspace', address: '31 Clerkenwell Close, Farringdon', city: 'London', postcode: "EC1R 0AT", price: 50}])
