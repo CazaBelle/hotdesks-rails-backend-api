@@ -4,9 +4,10 @@ rvm:
 cache:
 - bundler
 script:
-- bundle install
-- rails db:create
-- rails db:migrate
+- 
+bundle install
+- bin/rails db:create
+- bin/rails db:migrate
 - bundle exec rspec
 services:
 - postrgresql
