@@ -1,4 +1,4 @@
-Hotdesks-backend (RESTful json api)
+Hotdesks-backend (RESTful json api) [![Build Status](https://travis-ci.org/CazaBelle/hotdesks-rails-backend-api.svg?branch=master)](https://travis-ci.org/CazaBelle/hotdesks-rails-backend-api)
 ----------
 This is an API backend for a nomad-list styled app. It is currently deployed at: [https://hotdesks-backend-api.herokuapp.com](https://hotdesks-backend-api.herokuapp.com)
 
