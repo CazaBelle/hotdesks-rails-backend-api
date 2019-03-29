@@ -59,7 +59,6 @@ RSpec.describe 'spaces API', type: :request do
           expect(json["data"]["address"]).to eq("123 Test Street")
           expect(response).to have_http_status(201)
         end 
-
       end
     end
       
@@ -71,7 +70,27 @@ RSpec.describe 'spaces API', type: :request do
       it 'returns a status code 422' do 
         expect(response).to have_http_status(422)
       end 
+
+      it 'returns Space not added message' do 
+        expect(response.body).to match("{\"message\":\"Space not added\"}")
+      end 
     end 
+
+    describe 'PUT /v1/spaces/:id' do 
+      # let(:attribute){ {name: "NewName"} }
+
+      before(:each) do 
+        put "/v1/spaces/#{space_id}", params: {name: "NewName"}
+      end 
+
+
+      it 'updates the record' do 
+        expect(response.body).to be_empty
+        expect(response).to have_http_status(204)
+      end 
+
+    end 
+
 
     # Parse JSON response to ruby hash
     def json
