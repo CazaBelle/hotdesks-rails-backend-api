@@ -68,7 +68,7 @@ Returns a single space
 ```
 curl "https://hotdesks-backend-api.herokuapp.com/v1/spaces/1"
 ```
-JSON reponse
+The successful JSON response will be structured like this: 
 ```
 {
     "id": 1,
