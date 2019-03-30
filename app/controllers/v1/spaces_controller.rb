@@ -4,7 +4,6 @@ class V1::SpacesController < ApplicationController
   # GET /v1/spaces
   def index
     spaces = Space.all
-    #spaces = { "name":"Club Workspace", "address":"31 Clerkenwell Close, Farringdon", "city":"London", "postcode":"EC1R 0AT", "price":50 }
     render json: spaces
   end
 
